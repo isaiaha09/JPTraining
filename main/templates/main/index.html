@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+{% block content %}
+<body class="index-page">
+  <section id="hero">
+    <canvas id="hero-particles"></canvas>
+      <div id="hero-logo-container">
+        <a href="#main-content" id="hero-logo">
+          <img src="{% static 'images/jptraining_logo_text.png' %}" alt="JPTraining Logo">
+        </a>
+      </div>
+  </section>
+
+  <main id="main-content">
+    <h1><strong>Train like the pros. perform like the best. <br>
+    Join JPT and elevate your game! </strong>
+    </h1>
+    <h2>
+      <a href="{% url 'about_jpt' %}" class="start-button">Start Here</a>    
+    </h2>
+    <br>
+  </main>
+</body>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

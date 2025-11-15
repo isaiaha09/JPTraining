@@ -1,0 +1,78 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about_jpt.css' %}">
+{% endblock %}
+
+{% block title %}About JPTraining{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="about-hero">
+  <div class="hero-overlay">
+    <h1>Why Choose JPTraining?</h1>
+    <p>JPT is a one stop shop, focusing general fitness training, 
+      sport specific training, to recovery and rehab. JPT has all 
+      the tools you need to become a better athlete! It 
+       brings college-level experience and elite training methods 
+       designed to take young athletes to the next level. 
+    
+    </p>
+  </div>
+</section>
+
+<!-- Core Program Focus -->
+<section class="about-core">
+  <div class="container">
+    <h2>Our Program Focuses On</h2>
+    
+    <div class="focus-list">
+      <div class="focus-item">
+        <h3>Strength & Conditioning</h3>
+        <p>Proper weight lifting mechanics, improving endurance and core strength.</p>
+      </div>
+      <div class="focus-item">
+        <h3>Speed Development</h3>
+        <p>Explosive acceleration and top-end speed.</p>
+      </div>
+      <div class="focus-item">
+        <h3>Lateral Movement</h3>
+        <p>Quickness, agility, and body control.</p>
+      </div>
+      <div class="focus-item">
+        <h3>Reactive Skills</h3>
+        <p>Fast decision-making and real-game responsiveness.</p>
+      </div>
+      <div class="focus-item">
+        <h3>Injury Prevention</h3>
+        <p>Stretching, mobility, and manual therapy.</p>
+      </div>
+    </div>
+    
+    <br>
+    <div class="additional-links">
+
+      <div class="additional-links">
+
+        <div class="stack-item">
+          <p>For more about injury prevention, recovery, and rehabilitation</p>
+          <a class="theme-btn" href="{% url 'recovery_and_rehability' %}">Learn More</a>
+        </div>
+
+        <div class="stack-item">
+          <p>Check out the gallery for what training with JPT looks like</p>
+          <a class="theme-btn" href="{% url 'gallery' %}">View Gallery</a>
+        </div>
+
+      </div>
+  </div>
+</section>
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/about_jpt.js' %}"></script>
+{% endblock %}

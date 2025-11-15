@@ -1,0 +1,10 @@
+# db.sqlite
+db.sqlite3
+
+#env
+.env
+env/
+env
+venv/
+venv
+.venv

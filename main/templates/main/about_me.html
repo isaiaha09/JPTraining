@@ -1,0 +1,61 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about_me.css' %}">
+
+{% endblock %}
+
+{% block title %}About Me{% endblock %}
+{% block content %}
+  <div class="about-page">
+
+  <!-- HEADER SECTION -->
+  <div class="about-header">
+    <h1>About Me</h1>
+
+    <p class="intro">
+      My name is Jaylen Price (JP). I'm a former D1 athlete from Dallas, Texas who moved to Ventura to be with my family...
+    </p>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="about-container">
+
+    <!-- Slideshow -->
+    <div class="about-slideshow">
+      <div class="slide show" style="background-image: url('/static/images/jptraining_pic1.jpeg');"></div>
+      <div class="slide" style="background-image: url('/static/images/jptraining_pic2.jpeg');"></div>
+      <div class="slide" style="background-image: url('/static/images/jptraining_pic3.jpeg');"></div>
+      <div class="slide" style="background-image: url('/static/images/jptraining_pic4.jpeg');"></div>
+      <div class="slide" style="background-image: url('/static/images/jptraining_pic5.jpeg');"></div>
+      <div class="slide" style="background-image: url('/static/images/jptraining_pic6.jpeg');"></div>
+      <div class="slide" style="background-image: url('/static/images/jptraining_pic7.jpeg');"></div>
+    </div>
+
+    <!-- Text -->
+    <div class="about-text">
+      <p>
+        As a duel threat athlete in high school, I held high ranks on the football field and was a state competitor in track.
+        My senior year I made the tough decision to turn down multiple track scholarships to continue my football career
+        at Montana State University. There I studied Kinesiology where I developed a passion for fitness and coaching.
+        I went on to obtain a job as a physical therapy technician where I learned the important balance between performance
+        and recovery.
+      </p>
+
+      <p>
+        Through my experience as an athlete I found that speed and agility training can advance an athlete's potential to
+        perform at a higher level of competition. My mission is to provide our members with tailored training methods that
+        will minimize the risk of injury while maximizing strength, speed, and endurance. In my free time I enjoy hiking,
+        playing beach volleyball and spending time with my family. I pride in building relationships that motivate and
+        encourage athletes to challenge themselves day in and day out.
+      </p>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/about_me.js' %}"></script>
+{% endblock %}

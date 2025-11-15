@@ -1,0 +1,244 @@
+/* Hero Section */
+.about-hero {
+  height: 550px; /* taller hero for more presence */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(80deg, #1b1e55 50%, #d2b48c 50%);
+  min-height: 100vh;
+}
+
+.about-hero,
+.about-core,
+.video-section {
+  background-color: transparent;
+}
+
+
+.about-hero {
+  margin-top: -25px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.about-hero.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-overlay h1,
+.hero-overlay p {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.hero-overlay h1.show,
+.hero-overlay p.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-overlay {
+  background-color: #1b1e55eb;
+  padding: 60px; /* bigger padding */
+  border-radius: 20px;
+  max-width: 900px; /* wider */
+  text-align: center;
+  box-shadow: 0px 0px 5px 7px #d2b48c;
+}
+
+.hero-overlay h1 {
+  font-size: 4rem; /* bigger heading */
+  margin-bottom: 20px;
+  color: #d2b48c;
+}
+
+.hero-overlay p {
+  font-size: 1.5rem; /* larger paragraph */
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: #d2b48c;
+  color: #000;
+  padding: 16px 40px; /* bigger button */
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: bold;
+ 	font-size: 1.2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* Core Program Focus */
+.about-core {
+  padding: 70px 0;
+
+  color: #fff;
+
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+/* Inner box */
+.about-core .container {
+  width: 80%;
+  background: #1b1e55eb;
+  border-radius: 15px;
+  padding: 80px 60px;
+  box-shadow: 0px 0px 5px 7px #d2b48c;
+
+}
+
+/* Title */
+.about-core h2 {
+  font-size: 5rem;
+  text-align: center;
+  margin-bottom: 150px;
+  color: #d2b48c;
+
+}
+
+/* List layout */
+.focus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 250px;  /* More space between items */
+}
+
+/* Focus item: left/right layout */
+.focus-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* header smaller, description bigger */
+  align-items: start;
+
+}
+
+/* Header titles */
+.focus-item h3 {
+  font-size: 3.5rem;
+  text-align: left;
+  color: #d2b48c;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.6s ease-out;
+}
+
+/* Descriptions */
+.focus-item p {
+  margin-top: 20px;
+  font-size: 2rem;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.6s ease-out;
+}
+
+.additional-links {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers everything */
+  gap: 45px; /* space between each block */
+  text-align: center;
+}
+
+.stack-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* space between paragraph + button */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.stack-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stack-item p {
+  margin: 0;
+  font-size: 45px; /* bigger text */
+  max-width: auto;
+  color: #eaeaea;
+}
+
+/* Themed button */
+.theme-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+
+  background-color: #1b1e55;   /* deep navy */
+  color: #d2b48c;              /* tan text */
+
+  border: 2px solid #d2b48c;
+
+  transition: all 0.25s ease;
+}
+
+.theme-btn:hover {
+  background-color: #d2b48c;
+  color: #1b1e55;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .about-hero {
+    height: 450px;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-overlay p {
+    font-size: 1.3rem;
+  }
+
+  .about-core h2 {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+  }
+
+  .focus-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .focus-item h3 {
+    flex: none;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .focus-item p {
+    font-size: 1.1rem;
+  }
+}

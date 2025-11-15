@@ -1,0 +1,311 @@
+body{
+    background-color: #1b1e55f9;
+}
+
+/* CONTACT SECTION CONTAINER */
+.contact-section {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  background: #1b1e55;
+  box-shadow: 0px 0px 5px 7px #d2b48c;
+  color: #fff;
+  width: 60%;
+  border-radius: 45px;
+  padding: 20px 20px 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* TITLE */
+.contact-section h1 {
+  font-size: 2.8rem;
+  color: #d2b48c;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  animation: fadeInDown 0.8s ease both;
+}
+
+/* Elegant underline under the H1 */
+.contact-section h1::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background: #d2b48c;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.contact-section h1:hover::after {
+  width: 120px;
+}
+
+/* DESCRIPTION TEXT */
+.contact-section p {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  animation: fadeInUp 1s ease both;
+}
+
+/* CONTACT FORM CONTAINER */
+.contactform-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  animation: fadeInUp 1.2s ease both;
+}
+
+/* FORM BODY */
+#contactform {
+ 
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(210, 180, 140, 0.4);
+  border-radius: 20px;
+  padding: 40px 50px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contactform:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* LABELS */
+.form-group label {
+  display: block;
+  font-size: 1.1rem;
+  color: #d2b48c;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* INPUTS + TEXTAREA */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+  outline: none;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* FOCUS STATES */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #d2b48c;
+  box-shadow: 0 0 10px rgba(210, 180, 140, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* TEXTAREA */
+textarea {
+  resize: none;
+  min-height: 140px;
+}
+
+/* SUBMIT BUTTON */
+.btn {
+  display: inline-block;
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px;
+  background-color: #d2b48c;
+  color: #1b1e55;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: #1b1e55;
+  box-shadow: 0 0 15px #d2b48c;
+  transform: translateY(-2px);
+}
+
+/* ERROR + SUCCESS MESSAGES */
+.error {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  min-height: 15px;
+}
+
+.success {
+  color: #9be79b;
+  font-size: 0.95rem;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================================
+   FULL MOBILE / TABLET RESPONSIVE FIXES
+   =========================================== */
+
+@media (max-width: 1200px) {
+  .contact-section {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+}
+
+@media (max-width: 992px) {
+  .contact-section {
+    width: 80%;
+    padding: 20px 20px 80px;
+  }
+}
+
+/* ---------- TABLET (768px) ---------- */
+@media (max-width: 768px) {
+  .contact-section {
+    width: 95%;
+    padding: 20px 15px 60px;
+    border-radius: 30px; /* optional: smaller rounded corners on tiny screens */
+  }
+
+  .contact-section h1 {
+    font-size: 2.2rem;
+  }
+
+  .contact-section p {
+    font-size: 1.05rem;
+    margin-bottom: 35px;
+    padding: 0 10px;
+  }
+
+  /* FORM */
+  #contactform {
+    padding: 30px 25px;
+    max-width: 100%;
+  }
+
+  .form-group label {
+    font-size: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.95rem;
+    padding: 11px 12px;
+  }
+
+  textarea {
+    min-height: 120px;
+  }
+
+  .btn {
+    padding: 14px;
+    font-size: 1.05rem;
+  }
+
+  /* FIX INSTAGRAM WIDGET WIDTH */
+  .lightwidget-widget {
+    margin-top: 30px;
+    width: 100% !important;
+  }
+}
+
+/* ---------- SMALL PHONES (430px and below) ---------- */
+@media (max-width: 430px) {
+
+  .contact-section {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 25px 15px 50px;
+  }
+
+  .contact-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-section p {
+    font-size: 0.95rem;
+  }
+
+  #contactform {
+    padding: 20px 15px;
+  }
+
+  .btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+/* ---------- ULTRA SMALL (360px and below) ---------- */
+@media (max-width: 360px) {
+
+  .contact-section h1 {
+    font-size: 1.6rem;
+  }
+
+  #contactform {
+    padding: 18px 12px;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+  }
+
+  textarea {
+    min-height: 100px;
+  }
+}

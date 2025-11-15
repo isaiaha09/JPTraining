@@ -1,0 +1,66 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+{% endblock %}
+
+{% block title %}Gallery{% endblock %}
+{% block content %}
+<section class="gallery-container">
+  <h2>See JPTraining in Action</h2>
+  <div class="gallery-flex">
+    <!-- Left description -->
+    <div class="gallery-description">
+      <p>
+        At JPTraining, we accommodate to athletes and individuals of all ages. 
+        Our training sessions are tailored to help them reach their individual needs and goals,
+        whether that be through:
+      </p>
+    </div>
+
+    <!-- Right: carousel -->
+      <div class="carousel">
+        <div class="carousel-slide active">
+          <video src="{% static 'videos/jptraining_video1.mp4' %}" autoplay muted playsinline controls></video>
+          <p class="video-label fade-in">One on One</p>
+        </div>
+
+        <div class="carousel-slide">
+          <video src="{% static 'videos/jptraining_video2.mp4' %}" muted playsinline controls></video>
+          <p class="video-label fade-in">Small Group</p>
+        </div>
+
+        <div class="carousel-slide">
+          <video src="{% static 'videos/jptraining_video3.mp4' %}" muted playsinline controls></video>
+          <p class="video-label fade-in">Large Group</p>
+        </div>
+
+        <div class="carousel-slide">
+          <video src="{% static 'videos/jptraining_video4.mp4' %}" muted playsinline controls></video>
+          <p class="video-label fade-in">Team Training</p>
+        </div>
+
+        <!-- Arrows -->
+        <button class="carousel-prev">&#10094;</button>
+        <button class="carousel-next">&#10095;</button>
+
+        <!-- Dots -->
+        <div class="carousel-dots">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+          <span class="dot" data-index="3"></span>
+        </div>
+      </div>
+  </div>
+
+  <a href="{% url 'contact_me' %}" class="cta-button">Join Now</a>
+</section>
+
+<script src="{% static 'js/gallery.js' %}"></script>  
+
+{% endblock %}
+
+
+

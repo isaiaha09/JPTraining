@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block extra_css%}
+<link rel="stylesheet" href="{% static 'css/contact_me.css' %}">
+{% endblock %}
+{% block title %}Contact Me{% endblock %}
+{% block content %}
+  <section class="contact-section">
+    <h1>Contact Me</h1>
+    <p>For any inquieries, questions, or to schedule a 
+      session with me, please fill out the form below and follow my Instagram!
+    </p>
+    <div class="contactform-container">
+      <form id="contactform" action="https://formsubmit.co/YOUR-UNIQUE-ID" method="POST">
+        <!-- Honeypot field (spam trap) -->
+        <input type="text" name="_honey" style="display:none">
+
+        <!-- Disable Captcha (FormSubmit adds one by default if this is missing) -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- Optional success redirect (optional) -->
+        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
+          <div class="error" id="nameError"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+          <div class="error" id="emailError"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="phonenumber">Phone Number *</label>
+          <input type="text" id="phonenumber" name="phonenumber" required>
+          <div class="error" id="phoneError"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required></textarea>
+          <div class="error" id="messageError"></div>
+        </div>
+
+        <button type="submit" class="btn">Send Message</button>
+        <div class="success" id="successMsg"></div>
+      </form> <br>
+      <!-- LightWidget WIDGET -->
+      <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/483a151824a45167a4cd75ab3bb1f4cc.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+    </div>
+  </section>
+{% endblock %}

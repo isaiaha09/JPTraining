@@ -1,0 +1,486 @@
+/* JP's Website Base Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    background-color: #1b1e55;
+    color: #ffffff;
+}
+/* General header for all pages */
+header {
+  background-color: #1b1e55;
+  color: #fff;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0;            /* let navbar control spacing */
+  position: fixed;    /* normal header, not fixed */
+  z-index: 1000;
+  box-shadow: 0 7px 5px #d2b48c;
+}
+
+/* Navbar inside header */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 105px;          /* fixed height for navbar */
+  padding: 0 25px;        /* horizontal padding */
+  background-color: #1b1e55;
+  z-index: 1000;
+}
+
+
+/* Centered logo image */
+.jplogoclass {
+  position: absolute;
+  left: 50%;
+  top: 60% !important;
+  transform: translate(-50%, -50%);
+}
+
+.jplogoclass img {
+  height: 130px !important;  /* adjust this value */
+  width: auto !important;
+  display: block;
+}
+
+/* Logo */
+.logo a {
+  color: white; /* your normal color */
+  text-decoration: none;
+  font-size: 24px; /* adjust as needed */
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block; /* allows transform to work */
+}
+
+.logo a:hover {
+  color: #d2b48c; /* tan hover color */
+  transform: scale(1.2);
+}
+
+/* --- HAMBURGER --- */
+.hamburger {
+  width: 28px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  z-index: 10001; /* stay above nav */
+  transition: transform 0.3s ease;
+}
+
+.hamburger span {
+  background-color: #fff;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  left: 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* top, middle, bottom lines */
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+.hamburger span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hamburger span:nth-child(3) {
+  bottom: 0;
+}
+
+/* Hover effect */
+.hamburger:hover span {
+  background-color: #d2b48c;
+}
+
+/* --- When active (turn into X) --- */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 9px;
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  bottom: 8px;
+}
+
+/* Underline when hovering over active X */
+.hamburger.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #d2b48c;
+  transition: width 0.3s ease;
+}
+
+.hamburger.active:hover::after {
+  width: 100%;
+}
+/* --- NAV MENU --- */
+nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 60%;
+  max-width: 400px;
+  height: 100%;
+  background: #1b1e55;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* footer stays at bottom */
+  padding: 40px 25px; /* reduce padding */
+  gap: 2px; /* reduce space between links */
+  transition: right 0.6s ease-in-out, opacity 0.6s ease-in-out;
+  opacity: 0;
+  z-index: 9999;
+  box-shadow: -7px 107px 5px #d2b48c;
+}
+
+/* Footer container */
+.nav-footer {
+  display: flex;
+  justify-content: flex-start; /* icons side by side starting from left */
+  align-items: center;
+  gap: 30px; /* space between logo and IG icon */
+  margin-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  border: 5px solid white;
+  border-radius: 15px;
+  overflow: visible;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-button:hover {
+  color: #d2b48c;
+  transform: scale(1.2);
+  border: 5px solid #d2b48c;
+}
+
+.orbit-dot {
+  position: absolute;
+  width: 18px;
+  height: 10px;
+  background: #d2b48c;
+  border-radius: 50%;
+  pointer-events: none;
+  display: none; /* hidden until hover */
+}
+
+.orbit-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;            /* center vertically */
+  left: 2px;           /* small horizontal padding */
+  right: 2px;          /* stretch almost full width */
+  height: 2px;          /* thickness of the line */
+  background: #1b1e55;  /* line color */
+  border-radius: 1px;   /* slightly rounded ends */
+  transform: translateY(-50%);  /* truly center vertically */
+}
+
+/* Container for nav links */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* smaller space between links */
+  align-items: flex-start;
+  padding-left: 10px;
+
+}
+
+/* Optional: slightly smaller font for compactness */
+.nav-links a {
+  font-size: 1rem; /* adjust if needed */
+}
+
+.nav-footer .logo-link img{
+  height: 200px;
+}
+
+
+main {
+    margin-top: 20px;
+    position: relative;  /* needed for ::before positioning */
+    z-index: 1; 
+    padding-top: 110px;
+}
+
+
+
+/* Website logo */
+.footer-logo-img {
+  height: 130px; /* smaller */
+  object-fit: contain;
+}
+
+/* Instagram icon */
+.insta-icon {
+  width: 75px; 
+  height: 75px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.insta-link:hover .insta-icon {
+  transform: scale(1.2) rotate(-10deg);
+
+}
+
+nav.show {
+  right: 0;
+  opacity: 1;
+}
+
+/* Links */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #d2b48c;
+  
+ 
+}
+
+/* Overlay */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 999;
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+.main-footer {
+    box-shadow: 0px -7px 5px #d2b48c;
+    background-color: #1b1e55;
+    color: #ffffff;
+    text-align: center;
+    justify-content: center;
+    padding: 40px 20px 20px;
+}
+
+/* Container Flex Layout */
+.main-footer .footer-top-container {
+    display: flex;
+    justify-content: center;  /* centers all 3 sections */
+    align-items: center;
+    gap: 120px;                /* spacing between Tabs - Logo - Social */
+    flex-wrap: wrap;           /* wraps on smaller screens */
+    position: relative;
+
+}
+
+/* Tabs Section */
+.main-footer .footer-social,
+.main-footer .footer-logo-section {
+    flex:0 0 auto;          /* take only the width they need */
+    text-align: center;
+}
+
+.main-footer .footer-tabs{
+    flex: 0;
+}
+
+/* Section Titles */
+.main-footer .footer-section-title {
+    color: #d2b48c;
+    margin-bottom: 50px;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.main-footer .footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.main-footer .footer-links li {
+    margin-bottom: 30px;       /* spacing between links */
+}
+
+.main-footer .footer-links li a {
+    font-size: larger;
+    display: inline-block;
+    color: beige;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.main-footer .footer-links li a:hover {
+    transform: scale(1.2);
+    color: #d2b48c;
+    text-decoration: underline;
+}
+
+/* Remove the old underline effect */
+.main-footer .footer-links li a::after {
+    content: none;
+}
+
+.main-footer .logo-link {
+    display: inline-block;
+    position: relative;
+}
+
+.main-footer .footer-logo {
+    width: 400px;             /* bigger logo */
+    height: 400px;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s;
+}
+
+/* Animated underline directly under logo image */
+.main-footer .logo-link::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;             /* thickness of underline */
+    background-color: beige;  /* underline color */
+    margin-top: 5px;          /* space between image and underline */
+    transform: scaleX(0);     /* hide initially */
+    transform-origin: left;   /* start animation from left */
+    transition: transform 0.3s ease-out;
+}
+
+/* Hover effects for logo */
+.main-footer .logo-link:hover .footer-logo {
+    transform: scale(1.05);
+}
+
+.main-footer .logo-link:hover::after {
+    transform: scaleX(1);
+}
+
+
+
+.main-footer .footer-social .footer-section-title {
+    margin-bottom: 15px;      /* reduce spacing */
+    font-size: 1.2rem;
+}
+
+.main-footer .social-icon img {
+    width: 120px;
+    height: 120px;
+    transition: transform 0.3s;
+}
+
+.main-footer .social-icon:hover img {
+    transform: scale(1.2) rotate(-10deg);
+}
+
+/* Footer Bottom */
+.main-footer .footer-bottom {
+    margin-top: 20px;
+    border-top: 2px solid #555;
+    padding-top: 20px;
+    text-align: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+@media (max-width: 768px) {
+  .logo a{
+    font-size: 20px;
+  }
+
+  .nav-footer{
+    gap: 0px;
+  }
+
+  .nav-links a{
+    font-size: 15px;
+  }
+
+  .nav-footer .logo-link img{
+    height: 130px;
+  }
+
+  .nav-footer .insta-link img{
+    height: 65px;
+  }
+
+  .main-footer .footer-top-container {
+        flex-wrap: nowrap;          /* prevent stacking */
+        justify-content: space-between; /* spread sections evenly */
+        gap: 25px;                  /* reduce gap for smaller screens */
+        align-items: center;        /* vertically center everything */
+        padding: 0 10px;            /* optional horizontal padding */
+    }
+
+    /* Reduce logo size so it fits horizontally */
+    .main-footer .footer-logo {
+        width: 170px;
+        height: auto;
+        margin: 0;
+    }
+
+    /* Reduce social icon size */
+    .main-footer .social-icon img {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* Reduce spacing under section titles */
+    .main-footer .footer-section-title {
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
+    
+    .main-footer .footer-tabs .footer-links li{
+        margin-bottom: 10px;       /* reduce vertical spacing */
+        font-size: 7px;
+    }
+
+    .main-footer .footer-tabs .footer-links li a{
+      text-transform: uppercase;
+    }
+
+    /* Footer bottom adjustments */
+    .main-footer .footer-bottom {
+        font-size: 0.7rem;
+        padding-top: 10px;
+    }
+}

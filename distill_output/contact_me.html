@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1b1e55" id="theme-color-meta">
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="/static/css/base.css">
+  <link rel="manifest" href="/static/site.webmanifest">
+  <meta name="theme-color" content="#1b1e55">
+
+  <link rel="mask-icon" href="/static/images/safari-pinned-tab.svg" color="#1b1e55">
+  <link rel="apple-touch-icon" sizes="192x192" href="/static/images/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/static/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/static/css/contact_me.css">
+
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <a href="/"><strong>JPTRAINING</strong></a>
+      </div>
+      <div class="jplogoclass">
+        <a href="/" class="logo-link">
+          <img src="/static/images/jptraining_logo_text.png" alt="JPTraining Logo">
+        </a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav id="nav-menu">
+        <div class="nav-links">
+          <a href="/" class="nav-button">
+            Home
+            <svg width="0" height="0">
+              <path id="path-home" d="M15,0 H85 A15,15 0 0 1 100,15 V45 A15,15 0 0 1 85,60 H15 A15,15 0 0 1 0,45 V15 A15,15 0 0 1 15,0 Z"></path>
+            </svg>
+            <span class="orbit-dot"></span>
+          </a>
+          <a href="/about_me/" class="nav-button">
+            About Me
+            <svg width="0" height="0">
+              <path id="path-home" d="M15,0 H85 A15,15 0 0 1 100,15 V45 A15,15 0 0 1 85,60 H15 A15,15 0 0 1 0,45 V15 A15,15 0 0 1 15,0 Z"></path>
+            </svg>
+            <span class="orbit-dot"></span>
+          </a>
+          <a href="/about_jpt/" class="nav-button">
+            About JPT
+            <svg width="0" height="0">
+              <path id="path-home" d="M15,0 H85 A15,15 0 0 1 100,15 V45 A15,15 0 0 1 85,60 H15 A15,15 0 0 1 0,45 V15 A15,15 0 0 1 15,0 Z"></path>
+            </svg>
+            <span class="orbit-dot"></span>
+          </a>
+          <a href="/contact_me/" class="nav-button">
+            Contact Me
+            <svg width="0" height="0">
+              <path id="path-home" d="M15,0 H85 A15,15 0 0 1 100,15 V45 A15,15 0 0 1 85,60 H15 A15,15 0 0 1 0,45 V15 A15,15 0 0 1 15,0 Z"></path>
+            </svg>
+            <span class="orbit-dot"></span>
+          </a>
+          <a href="/gallery/" class="nav-button">
+            Gallery
+            <svg width="0" height="0">
+              <path id="path-home" d="M15,0 H85 A15,15 0 0 1 100,15 V45 A15,15 0 0 1 85,60 H15 A15,15 0 0 1 0,45 V15 A15,15 0 0 1 15,0 Z"></path>
+            </svg>
+            <span class="orbit-dot"></span>
+          </a>
+          <a href="/recovery_and_rehability/" class="nav-button">
+            Recovery and Rehability
+            <svg width="0" height="0">
+              <path id="path-home" d="M15,0 H85 A15,15 0 0 1 100,15 V45 A15,15 0 0 1 85,60 H15 A15,15 0 0 1 0,45 V15 A15,15 0 0 1 15,0 Z"></path>
+            </svg>
+            <span class="orbit-dot"></span>
+          </a>
+        </div>
+
+        <div class="nav-footer">
+          <a href="/" class="logo-link">
+            <img src="/static/images/jptraining_logo_text.png" alt="JPTraining Logo" class="footer-logo">
+          </a>
+          <a href="https://www.instagram.com/_justperform_" target="_blank" class="insta-link">
+            <img src="/static/images/instagram.png" alt="Instagram" class="insta-icon">
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    
+  <section class="contact-section">
+    <h1>Contact Me</h1>
+    <p>For any inquieries, questions, or to schedule a 
+      session with me, please fill out the form below and follow my Instagram!
+    </p>
+    <div class="contactform-container">
+      <form id="contactform" action="https://formsubmit.co/YOUR-UNIQUE-ID" method="POST">
+        <!-- Honeypot field (spam trap) -->
+        <input type="text" name="_honey" style="display:none">
+
+        <!-- Disable Captcha (FormSubmit adds one by default if this is missing) -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- Optional success redirect (optional) -->
+        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
+          <div class="error" id="nameError"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+          <div class="error" id="emailError"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="phonenumber">Phone Number *</label>
+          <input type="text" id="phonenumber" name="phonenumber" required>
+          <div class="error" id="phoneError"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required></textarea>
+          <div class="error" id="messageError"></div>
+        </div>
+
+        <button type="submit" class="btn">Send Message</button>
+        <div class="success" id="successMsg"></div>
+      </form> <br>
+      <!-- LightWidget WIDGET -->
+      <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/483a151824a45167a4cd75ab3bb1f4cc.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="main-footer">
+      <div class="footer-top-container">
+      <!-- Tabs Section -->
+      <div class="footer-tabs">
+        <h3 class="footer-section-title">Links</h3>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about_me/">About Me</a></li>
+          <li><a href="/about_jpt/">About JPT</a></li>
+          <li><a href="/contact_me/">Contact Me</a></li>
+          <li><a href="/gallery/">Gallery</a></li>
+          <li><a href="/recovery_and_rehability/">Recovery & Rehabilitation</a></li>
+        </ul>
+      </div>
+
+      <!-- Logo Section -->
+      <div class="footer-logo-section">
+        <a href="/" class="logo-link">
+          <img src="/static/images/jptraining_logo_text.png" alt="JPTraining Logo" class="footer-logo">
+        </a>
+      </div>
+
+      <!-- Social Section -->
+      <div class="footer-social">
+        <h3 class="footer-section-title">Social</h3>
+        <a href="https://www.instagram.com/_justperform_" target="_blank" class="social-icon">
+          <img src="/static/images/instagram.png" alt="Instagram">
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      Copyright &copy; <span id="year"></span> JPTraining - All Rights Reserved
+    </div>
+  </footer>
+
+  <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <script src="/static/js/base.js"></script>
+
+  
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register("/static/service-worker.js")
+            .then(reg => console.log('Service Worker registered:', reg))
+            .catch(err => console.error('Service Worker failed:', err));
+        });
+      }
+    </script>
+  
+</body>
+</html>

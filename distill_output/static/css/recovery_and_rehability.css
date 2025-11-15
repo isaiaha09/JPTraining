@@ -1,0 +1,82 @@
+.recovery-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.page-header h1 {
+  font-size: 3rem;
+  color: #d2b48c;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.page-header p.p1 {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  margin-bottom: 100px;
+  text-align: center;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Add extra separation between the two recovery sections */
+.recovery-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-bottom: 60px; /* increased from 60px to 100px */
+  padding-bottom: 30px; /* optional: extra space inside each row */
+ 
+}
+
+
+.recovery-section .left,
+.recovery-section .right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.recovery-section h2 {
+  font-size: 1.8rem;
+  color: #d2b48c;
+  margin-bottom: 15px;
+
+}
+
+.recovery-section p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Optional: add a subtle border between left and right columns */
+.recovery-section .left {
+  border-right: 1px solid rgba(210, 180, 140, 0.3);
+  padding-right: 25px;
+}
+
+.recovery-section .right {
+  padding-left: 25px;
+}
+
+.recovery-section-1{
+    padding-bottom: 100px;
+    border-bottom: 2px solid rgba(210, 180, 140, 0.2); /* subtle separator l */
+}
+
+
+
+/* Responsive for mobile */
+@media screen and (max-width: 900px) {
+  .recovery-section {
+    flex-direction: column;
+  }
+  
+  .recovery-section .left,
+  .recovery-section .right {
+    border: none;
+    padding: 0;
+  }
+}

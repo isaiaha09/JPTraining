@@ -30,6 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = [ 
     'justperformtraining.com',
     'www.justperformtraining.com',
+    'https://isaiaha09.github.io/JPTraining/'
 
 ]
 

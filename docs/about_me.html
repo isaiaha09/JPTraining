@@ -6,19 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#1b1e55" id="theme-color-meta">
   <title>About Me</title>
-  <link rel="stylesheet" href="static/css/base.css">
-  <link rel="manifest" href="static/site.webmanifest.json">
+  <link rel="stylesheet" href="/JPTraining/static/css/base.css">
+  <link rel="manifest" href="/JPTraining/static/site.webmanifest.json">
   <meta name="theme-color" content="#1b1e55">
 
-  <link rel="mask-icon" href="static/images/safari-pinned-tab.svg" color="#1b1e55">
-  <link rel="apple-touch-icon" sizes="192x192" href="static/images/favicon-192x192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="static/images/favicon-180x180.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
-  <link rel="shortcut icon" href="static/images/favicon.ico">
+  <link rel="mask-icon" href="/JPtraining/static/images/safari-pinned-tab.svg" color="#1b1e55">
+  <link rel="apple-touch-icon" sizes="192x192" href="/JPtraining/static/images/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/JPTraining/static/images/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/JPtraining/static/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/JPTraining/static/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/JPTraining/static/images/favicon.ico">
   
   
-<link rel="stylesheet" href="static/css/about_me.css">
+  <link rel="stylesheet" href="/JPTraining/static/css/about_me.css">
 
 
 </head>
@@ -183,17 +183,67 @@
     </div>
   </footer>
 
-  <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+  const CACHE_NAME = 'jpt-cache-v1';
 
-        if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/JPTraining/service-worker.js')
-            .then(reg => console.log('Service Worker registered:', reg))
-            .catch(err => console.error('Service Worker failed:', err));
+const APP_SHELL = [
+  '/JPTraining/index.html',
+  '/JPTraining/about_me.html',
+  '/JPTraining/contact_me.html',
+  '/JPTraining/gallery.html',
+  '/JPTraining/about_jpt.html',
+  '/JPTraining/recovery_and_rehability.html',
+
+  '/JPTraining/static/css/base.css',
+  '/JPTraining/static/js/base.js',
+  '/JPTraining/static/site.webmanifest',
+
+  '/JPTraining/static/images/jptraining_logo.png',
+  '/JPTraining/static/images/icon-192.png',
+  '/JPTraining/static/images/icon-512.png'
+];
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => {
+      return Promise.all(
+        APP_SHELL.map(url =>
+          cache.add(url).catch(err => console.warn('Failed to cache', url, err))
+        )
+      );
+    })
+  );
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys => 
+      Promise.all(keys.map(key => key !== CACHE_NAME ? caches.delete(key) : null))
+    )
+  );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', event => {
+  const reqUrl = new URL(event.request.url);
+
+  // Cache all assets under /JPTraining/static/
+  if (reqUrl.pathname.startsWith('/JPTraining/static/')) {
+    event.respondWith(
+      caches.match(event.request).then(cacheRes => {
+        return cacheRes || fetch(event.request).then(fetchRes => {
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, fetchRes.clone()));
+          return fetchRes;
         });
-      }
-  </script>
+      })
+    );
+  } else {
+    event.respondWith(
+      caches.match(event.request).then(cacheRes => cacheRes || fetch(event.request))
+    );
+  }
+});
+
 
   <script src="static/js/base.js"></script>
 

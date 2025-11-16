@@ -47,13 +47,20 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const reqUrl = new URL(event.request.url);
 
-  // Cache all assets under /JPTraining/static/
   if (reqUrl.pathname.startsWith('/JPTraining/static/')) {
     event.respondWith(
       caches.match(event.request).then(cacheRes => {
-        return cacheRes || fetch(event.request).then(fetchRes => {
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, fetchRes.clone()));
-          return fetchRes;
+        if (cacheRes) return cacheRes;
+
+        return fetch(event.request).then(fetchRes => {
+          // Clone once, right away
+          const resClone = fetchRes.clone();
+
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, resClone);
+          });
+
+          return fetchRes; // return the original
         });
       })
     );

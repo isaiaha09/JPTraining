@@ -16,10 +16,10 @@ const APP_SHELL = [
   '/JPTraining/static/images/favicon-192x192.png',
   '/JPTraining/static/images/favicon-512x512.png',
 
-  '/JPTraining/static/videos/jptraining_video1.mp4',
-  '/JPTraining/static/videos/jptraining_video2.mp4',
-  '/JPTraining/static/videos/jptraining_video3.mp4',
-  '/JPTraining/static/videos/jptraining_video4.mp4',
+  'JPTraining/static/videos/jptraining_video1.mp4',
+  'JPTraining/static/videos/jptraining_video2.mp4',
+  'JPTraining/static/videos/jptraining_video3.mp4', 
+  'JPTraining/static/videos/jptraining_video4.mp4'
 ];
 
 self.addEventListener('install', event => {
@@ -47,26 +47,17 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const reqUrl = new URL(event.request.url);
 
-  // Cache everything under /JPTraining/static/
+  // Cache all assets under /JPTraining/static/
   if (reqUrl.pathname.startsWith('/JPTraining/static/')) {
     event.respondWith(
       caches.match(event.request).then(cacheRes => {
-        if (cacheRes) return cacheRes;
-
-        return fetch(event.request).then(fetchRes => {
-          // Clone the response BEFORE it's used anywhere
-          const resClone = fetchRes.clone();
-
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, resClone);
-          });
-
+        return cacheRes || fetch(event.request).then(fetchRes => {
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, fetchRes.clone()));
           return fetchRes;
         });
       })
     );
   } else {
-    // Default network-last strategy
     event.respondWith(
       caches.match(event.request).then(cacheRes => cacheRes || fetch(event.request))
     );

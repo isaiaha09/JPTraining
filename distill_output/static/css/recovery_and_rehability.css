@@ -78,5 +78,10 @@
   .recovery-section .right {
     border: none;
     padding: 0;
+    text-align: center;
+  }
+
+  .recovery-page{
+    padding: 0 15px;
   }
 }

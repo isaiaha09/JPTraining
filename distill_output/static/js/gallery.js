@@ -23,16 +23,18 @@ function showSlide(index) {
   dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
 }
 
-// Arrow navigation
-nextBtn.addEventListener('click', () => {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-});
+// Arrow navigation: only if buttons exist
+if (nextBtn && prevBtn) {
+  nextBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  });
 
-prevBtn.addEventListener('click', () => {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
-});
+  prevBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  });
+}
 
 // Dot navigation
 dots.forEach(dot => {

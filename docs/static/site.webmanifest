@@ -1,8 +1,8 @@
 {
-  "id":"/",
+  "id":"/JPTraining/",
   "name": "JPTraining",
   "short_name": "JPT",
-  "start_url": "/",
+  "start_url": "/JPTraining/",
   "display": "standalone",
   "background_color": "#1b1e55",
   "theme_color": "#1b1e55",

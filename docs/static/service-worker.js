@@ -1,18 +1,18 @@
 const CACHE_NAME = 'jpt-cache-v1';
 const APP_SHELL = [
-  '/',  // home page
-  '/about_me.html',
-  '/contact_me.html',
-  '/gallery.html',
-  '/about_me.html',
-  '/about_jpt.html',
-  '/recovery_and_rehability.html',
-  '/css/base.css',
-  '/js/base.js',
-  '/site.webmanifest',
-  '/images/jptraining_logo.png',
-  '/images/favicon-192x192.png',
-  '/images/favicon-512x512.png',
+  './',  // home page
+  './JPtraining/about_me.html',
+  './contact_me.html',
+  './gallery.html',
+  './about_me.html',
+  './about_jpt.html',
+  './recovery_and_rehability.html',
+  './css/base.css',
+  './js/base.js',
+  './site.webmanifest',
+  './images/jptraining_logo.png',
+  './images/favicon-192x192.png',
+  './images/favicon-512x512.png',
 ];
 
 self.addEventListener('install', event => {

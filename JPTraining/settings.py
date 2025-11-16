@@ -28,6 +28,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "i-love-me-myself")
 DEBUG = True
 
 ALLOWED_HOSTS = [ 
+    '127.0.0.1',
     'justperformtraining.com',
     'www.justperformtraining.com',
     'https://isaiaha09.github.io/JPTraining/'

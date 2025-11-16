@@ -206,39 +206,146 @@ body {
 }
 
 
-/* Responsive */
+/* Responsive Improvements */
 @media screen and (max-width: 900px) {
   .about-hero {
-    height: 450px;
+    height: 350px; /* shrink hero for phones */
+    margin-top: 0;
+  }
+
+  .hero-overlay {
+    padding: 30px 20px; /* reduce padding */
+    max-width: 90%;
   }
 
   .hero-overlay h1 {
-    font-size: 2.8rem;
+    font-size: 2rem;
   }
 
   .hero-overlay p {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
-  .about-core h2 {
-    font-size: 2.2rem;
-    margin-bottom: 50px;
+  .cta-button {
+    padding: 12px 25px;
+    font-size: 1rem;
   }
 
-  .focus-item {
+  .about-core {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+/* Center the container and all its content */
+  .about-core .container {
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 95%;
+    padding: 40px 20px;
   }
 
-  .focus-item h3 {
-    flex: none;
-    font-size: 1.6rem;
-    margin-bottom: 15px;
+  /* Center heading */
+  .about-core h2 {
     text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+  }
+
+  /* Focus list stacking */
+  .focus-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  /* Force each focus item to stack vertically */
+  .focus-item {
+    display: flex !important; /* override grid */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Force all child text to center */
+  .focus-item h3,
+  .focus-item p {
+    text-align: center !important; /* override any inherited left */
+    margin: 0 auto; /* center block if width < 100% */
+  }
+
+  /* Adjust font sizes for readability */
+  .focus-item h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
   }
 
   .focus-item p {
     font-size: 1.1rem;
+    max-width: 90%; /* prevent hugging edges */
+  }
+
+  /* Fix nested additional-links */
+  .additional-links,
+  .additional-links .additional-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .stack-item p {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+  .theme-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 500px) {
+  .about-hero {
+    height: 300px;
+  }
+
+  .hero-overlay {
+    padding: 20px 15px;
+  }
+
+  .hero-overlay h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-overlay p {
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .about-core .container {
+    padding: 30px 15px;
+  }
+
+  .about-core h2 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+  }
+
+  .stack-item p {
+    font-size: 0.9rem;
+  }
+
+  .theme-btn {
+    padding: 6px 14px;
+    font-size: 0.8rem;
   }
 }

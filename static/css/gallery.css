@@ -8,6 +8,7 @@
 .gallery-container h2 {
   font-size: 3rem;
   margin-bottom: 30px;
+  color: #d2b48c;
 }
 
 .gallery-flex {
@@ -170,18 +171,85 @@
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
 }
 
-/* Responsive: stack description above videos on smaller screens */
 @media (max-width: 900px) {
+  /* Reduce container padding */
+  .gallery-container {
+    padding: 20px 10px;
+  }
+
+  /* Stack description above videos */
   .gallery-flex {
     flex-direction: column;
     align-items: center;
+    gap: 20px;
   }
 
+  /* Description */
   .gallery-description {
+    width: 100%;
     text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
   }
 
+  /* Videos column */
   .gallery-videos {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+  }
+
+  /* Carousel: keep aspect ratio to prevent smashing */
+  .carousel {
+    width: 100%;
+    aspect-ratio: 5 / 4;    /* maintain 500x400 ratio */
+    position: relative;
+    overflow: hidden;       /* hide inactive slides */
+    padding: 0;             /* remove padding to avoid shrinking */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Slides: only show active */
+  .carousel-slide {
+    position: absolute;     /* stack slides */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;           /* fill carousel container */
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: 0;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+    z-index: 10;
+  }
+
+  /* Video scales to container */
+  .carousel-slide video {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;      /* prevents stretching */
+    border-radius: 12px;
+  }
+
+   /* Hide prev/next buttons on mobile */
+  .carousel-prev,
+  .carousel-next {
+    display: none;
+  }
+
+
+  /* CTA button */
+  .cta-button {
+    font-size: 1rem;
+    padding: 12px 30px;
   }
 }

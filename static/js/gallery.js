@@ -13,26 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (i === index) {
         slide.classList.add('active');
         slide.style.zIndex = 10;
-
-        // Always muted for autoplay
-        video.muted = true;
-        video.playsInline = true;
-
-        // Start playing
-        video.play().catch(()=>{}); 
-
-        // Dynamically add controls after first user interaction
-        const enableControls = () => {
-          video.setAttribute('controls', true);
-          video.removeEventListener('click', enableControls);
-        };
-        video.addEventListener('click', enableControls);
-
       } else {
         slide.classList.remove('active');
         slide.style.zIndex = 1;
 
-        // Pause any inactive videos
+        // Pause inactive videos
         if (!video.paused) video.pause();
       }
     });
@@ -42,26 +27,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Arrow navigation
-  if (nextBtn && prevBtn) {
-    nextBtn.addEventListener('click', () => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    });
+  nextBtn?.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  });
 
-    prevBtn.addEventListener('click', () => {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(currentSlide);
-    });
-  }
+  prevBtn?.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  });
 
   // Dot navigation
-  dots.forEach(dot =>
+  dots.forEach(dot => {
     dot.addEventListener('click', () => {
       currentSlide = parseInt(dot.dataset.index);
       showSlide(currentSlide);
-    })
-  );
+    });
+  });
 
   // Initialize first slide
-  setTimeout(() => showSlide(currentSlide), 200);
+  showSlide(currentSlide);
 });

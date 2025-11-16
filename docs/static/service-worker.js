@@ -11,8 +11,8 @@ const APP_SHELL = [
   '/js/base.js',
   '/site.webmanifest',
   '/images/jptraining_logo.png',
-  '/images/favicon-192.png',
-  '/images/favicon-512.png',
+  '/images/favicon-192x192.png',
+  '/images/favicon-512x512.png',
 ];
 
 self.addEventListener('install', event => {

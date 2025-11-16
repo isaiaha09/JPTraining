@@ -11,17 +11,25 @@ function showSlide(index) {
 
     if (i === index) {
       slide.classList.add('active');
-      slide.style.zIndex = 10; // make sure active slide is on top
-      // Do NOT auto-play; user can click play manually
+      slide.style.zIndex = 10;
+
+      // Force mobile to load video
+      if (video.paused) {
+        video.load();
+      }
+
     } else {
       slide.classList.remove('active');
-      slide.style.zIndex = 1; // behind active slide
-      video.pause(); // pause non-active videos
+      slide.style.zIndex = 1;
+      video.pause();
     }
   });
 
   dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
 }
+
+// Initialize first slide after short delay to let mobile render it
+setTimeout(() => showSlide(currentSlide), 50);
 
 // Arrow navigation
 nextBtn.addEventListener('click', () => {

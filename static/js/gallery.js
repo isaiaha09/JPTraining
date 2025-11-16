@@ -13,22 +13,22 @@ function showSlide(index) {
       slide.classList.add('active');
       slide.style.zIndex = 10;
 
-      // Force mobile to load video
-      if (video.paused) {
-        video.load();
-      }
-
+      video.muted = true;
+      video.play().catch(()=>{});
     } else {
       slide.classList.remove('active');
       slide.style.zIndex = 1;
-      video.pause();
+
+      if (!video.paused) {
+        video.pause();
+      }
     }
   });
 
   dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
 }
 
-// Arrow navigation (only if buttons exist)
+// Buttons
 if (nextBtn && prevBtn) {
   nextBtn.addEventListener('click', () => {
     currentSlide = (currentSlide + 1) % slides.length;
@@ -41,13 +41,12 @@ if (nextBtn && prevBtn) {
   });
 }
 
-// Dot navigation
-dots.forEach(dot => {
+// Dots
+dots.forEach(dot =>
   dot.addEventListener('click', () => {
     currentSlide = parseInt(dot.dataset.index);
     showSlide(currentSlide);
-  });
-});
+  })
+);
 
-// Initialize first slide after a short delay (mobile-friendly)
-setTimeout(() => showSlide(currentSlide), 50);
+setTimeout(() => showSlide(currentSlide), 200);

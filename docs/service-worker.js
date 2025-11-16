@@ -15,11 +15,6 @@ const APP_SHELL = [
   '/JPTraining/static/images/jptraining_logo.png',
   '/JPTraining/static/images/favicon-192x192.png',
   '/JPTraining/static/images/favicon-512x512.png',
-
-  'JPTraining/static/videos/jptraining_video1.mp4',
-  'JPTraining/static/videos/jptraining_video2.mp4',
-  'JPTraining/static/videos/jptraining_video3.mp4', 
-  'JPTraining/static/videos/jptraining_video4.mp4'
 ];
 
 self.addEventListener('install', event => {
@@ -47,6 +42,13 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const reqUrl = new URL(event.request.url);
 
+  // Skip caching for .mp4 files
+  if (reqUrl.pathname.endsWith('.mp4')) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
+  // For other static assets
   if (reqUrl.pathname.startsWith('/JPTraining/static/')) {
     event.respondWith(
       caches.match(event.request).then(cacheRes => {
@@ -55,16 +57,17 @@ self.addEventListener('fetch', event => {
         return fetch(event.request).then(fetchRes => {
           // Clone once, right away
           const resClone = fetchRes.clone();
-
           caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, resClone);
+            cache.put(event.request, resClone).catch(err => {
+              console.warn('Failed to cache', event.request.url, err);
+            });
           });
-
           return fetchRes; // return the original
         });
       })
     );
   } else {
+    // For HTML pages or other requests
     event.respondWith(
       caches.match(event.request).then(cacheRes => cacheRes || fetch(event.request))
     );

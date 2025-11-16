@@ -204,7 +204,7 @@
 
         if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('JPTraining/static/service-worker.js')
+          navigator.serviceWorker.register('docs/static/service-worker.js')
             .then(reg => console.log('Service Worker registered:', reg))
             .catch(err => console.error('Service Worker failed:', err));
         });

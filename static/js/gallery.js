@@ -28,19 +28,18 @@ function showSlide(index) {
   dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
 }
 
-// Initialize first slide after short delay to let mobile render it
-setTimeout(() => showSlide(currentSlide), 50);
+// Arrow navigation (only if buttons exist)
+if (nextBtn && prevBtn) {
+  nextBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  });
 
-// Arrow navigation
-nextBtn.addEventListener('click', () => {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-});
-
-prevBtn.addEventListener('click', () => {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
-});
+  prevBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  });
+}
 
 // Dot navigation
 dots.forEach(dot => {
@@ -50,5 +49,5 @@ dots.forEach(dot => {
   });
 });
 
-// Initialize first slide
-showSlide(currentSlide);
+// Initialize first slide after a short delay (mobile-friendly)
+setTimeout(() => showSlide(currentSlide), 50);

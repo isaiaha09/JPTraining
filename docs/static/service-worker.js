@@ -1,6 +1,12 @@
 const CACHE_NAME = 'jpt-cache-v1';
 const APP_SHELL = [
   '/',  // home page
+  '/about_me',
+  '/contact_me',
+  '/gallery',
+  '/about_me',
+  '/about_jpt',
+  '/recovery_and_rehability',
   '/static/css/base.css',
   '/static/js/base.js',
   '/static/site.webmanifest',
@@ -11,7 +17,12 @@ const APP_SHELL = [
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL))
+    caches.open(CACHE_NAME).then(cache => {
+      const promises = APP_SHELL.map(url => 
+        cache.add(url).catch(err => console.warn('Failed to cache', url, err))
+      );
+      return Promise.all(promises);
+    })
   );
   self.skipWaiting();
 });

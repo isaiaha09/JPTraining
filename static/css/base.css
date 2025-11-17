@@ -420,6 +420,30 @@ nav a:hover {
     color: #bbb;
 }
 
+.jp-chat-header {
+    background-color: #d2b48c;  /* tan header */
+    color: #000;                /* text color */
+    font-weight: bold;
+    padding: 10px 15px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between; /* title on left, close on right */
+    align-items: center;
+    border-bottom: 2px solid #1b1e55;
+}
+
+.jp-chat-close {
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1b1e55;
+    transition: color 0.2s ease;
+}
+
+.jp-chat-close:hover {
+    color: #4b59f0;
+}
+
 .jp-chat-window {
   position: fixed;
   bottom: 90px;
@@ -439,10 +463,12 @@ nav a:hover {
   opacity: 0;
   z-index: 1000;
   font-size: 0.9rem;
+  text-transform: none;
 }
 
 .jp-chat-window *{
   font-size: 0.9rem;
+  text-transform: none;
 }
 
 .jp-chat-window.open {

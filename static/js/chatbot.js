@@ -3,6 +3,14 @@ const chatWindow = document.getElementById("jp-chat-window");
 const messages = document.getElementById("jp-chat-messages");
 const options = document.getElementById("jp-chat-options");
 
+// ---- Add header close button listener ----
+const chatClose = document.querySelector(".jp-chat-close");
+if (chatClose) {
+    chatClose.addEventListener("click", () => {
+        chatWindow.classList.remove("open");
+    });
+}
+
 // UI helpers
 function addBotMessage(text) {
   const el = document.createElement("div");

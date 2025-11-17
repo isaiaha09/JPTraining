@@ -4,6 +4,7 @@ const messages = document.querySelector(".jp-chat-messages");
 const options = document.querySelector(".jp-chat-options");
 const chatClose = document.querySelector(".jp-chat-close");
 
+let historyStack = []; // ← global history stack
 
 if (chatClose) {
     chatClose.addEventListener("click", () => {
@@ -28,28 +29,56 @@ function addUserMessage(text) {
   messages.scrollTop = messages.scrollHeight;
 }
 
+function restartChat() {
+  messages.innerHTML = "";  // clear all chat messages
+  historyStack = [];         // reset history stack
+  startChat();               // start over
+}
+
 // Toggle chat window
 bubble.addEventListener("click", () => chatWindow.classList.toggle("open"));
 
-// Start conversation
-function startChat() {
-  addBotMessage("Hi! What are you here for today?");
-  showOptions([
-    { text: "Training programs", value: "programs" },
-    { text: "Recovery tips", value: "recovery" },
-    { text: "Pricing & availability", value: "pricing" }
-  ]);
-}
-
-// Show buttons for options
 function showOptions(items) {
   options.innerHTML = "";
+
+  // Push current options to history
+  historyStack.push(items);
+
   items.forEach(item => {
     const btn = document.createElement("button");
     btn.innerText = item.text;
     btn.addEventListener("click", () => handleOption(item.value, item.text));
     options.appendChild(btn);
   });
+
+  // Optional: Back button for one-step back
+  if (historyStack.length > 1) {
+    const backBtn = document.createElement("button");
+    backBtn.innerText = "⬅ Back";
+    backBtn.addEventListener("click", () => {
+      historyStack.pop(); // remove current step
+      const prevOptions = historyStack.pop(); // get previous options
+      showOptions(prevOptions);
+    });
+    options.appendChild(backBtn);
+  }
+
+  // Default "Restart" button
+  const restartBtn = document.createElement("button");
+  restartBtn.innerText = "🔄 Restart";
+  restartBtn.addEventListener("click", restartChat);
+  options.appendChild(restartBtn);
+}
+
+// Start conversation
+function startChat() {
+  addBotMessage("Hi! What are you here for today?");
+  const firstOptions = [
+    { text: "Training programs", value: "programs" },
+    { text: "Recovery tips", value: "recovery" },
+    { text: "Pricing & availability", value: "pricing" }
+  ];
+  showOptions(firstOptions);
 }
 
 // Handle option selection

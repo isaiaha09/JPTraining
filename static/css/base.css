@@ -419,6 +419,88 @@ nav a:hover {
     font-size: 0.85rem;
     color: #bbb;
 }
+.jp-chat-window {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  background: #1b1e55;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: scale(0);
+  opacity: 0;
+  z-index: 1000;
+}
+
+.jp-chat-window.open {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.jp-chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.jp-message {
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.jp-bot {
+  background: #d2b48c;
+  color: #000;
+  align-self: flex-start;
+}
+
+.jp-user {
+  background: #4b59f0;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.jp-chat-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 8px;
+  background: #2b2f70;
+}
+
+.jp-chat-options button {
+  flex: 1 1 calc(50% - 5px);
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  background: #d2b48c;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.jp-chat-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1b1e55;
+  color: #fff;
+  box-shadow: 0px 0px 7px 5px #d2b48c;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1001;
+}
 
 @media (max-width: 768px) {
   .logo a{
@@ -483,4 +565,7 @@ nav a:hover {
         font-size: 0.7rem;
         padding-top: 10px;
     }
+
+    #jp-chat-window { right: 14px; left: 14px; width: auto; bottom: 90px; height: 58vh; }
+  #jp-chat-bubble { right: 16px; bottom: 16px; }
 }

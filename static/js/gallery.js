@@ -1,0 +1,48 @@
+const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.dot');
+const nextBtn = document.querySelector('.carousel-next');
+const prevBtn = document.querySelector('.carousel-prev');
+
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    const video = slide.querySelector('video');
+
+    if (i === index) {
+      slide.classList.add('active');
+      slide.style.zIndex = 10; // make sure active slide is on top
+      // Do NOT auto-play; user can click play manually
+    } else {
+      slide.classList.remove('active');
+      slide.style.zIndex = 1; // behind active slide
+      video.pause(); // pause non-active videos
+    }
+  });
+
+  dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+}
+
+// Arrow navigation: only if buttons exist
+if (nextBtn && prevBtn) {
+  nextBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  });
+}
+
+// Dot navigation
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    currentSlide = parseInt(dot.dataset.index);
+    showSlide(currentSlide);
+  });
+});
+
+// Initialize first slide
+showSlide(currentSlide);

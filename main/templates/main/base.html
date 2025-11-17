@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
   <link rel="manifest" href="{% static 'site.webmanifest' %}">
   <meta name="theme-color" content="#1b1e55">
-
+  
+  <script src="https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@latest/dist/webllm.min.js"></script>
   <link rel="mask-icon" href="{% static 'images/safari-pinned-tab.svg' %}" color="#1b1e55">
   <link rel="apple-touch-icon" sizes="192x192" href="{% static 'images/favicon-192x192.png' %}">
   <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon-180x180.png' %}">
@@ -96,6 +97,18 @@
   <main>
     {% block content %}{% endblock %}
   </main>
+
+  <!-- Chat window -->
+  <div id="jp-chat-window" class="jp-chat-window">
+    <div id="jp-chat-messages" class="jp-chat-messages"></div>
+    <div id="jp-chat-options" class="jp-chat-options"></div>
+  </div>
+
+  <!-- Chat bubble button -->
+  <button id="jp-chat-bubble" class="jp-chat-bubble" title="Open chat">💬</button>
+
+  <!-- Include chatbot script -->
+  <script src="{% static 'js/chatbot.js' %}"></script>
 
   <footer class="main-footer">
       <div class="footer-top-container">

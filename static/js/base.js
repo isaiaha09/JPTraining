@@ -125,4 +125,4 @@ document.addEventListener('DOMContentLoaded', () => {
       dot.style.transform = 'rotate(0deg)';
       dot2.style.transform = 'rotate(0deg)';
     });
-  });
+});

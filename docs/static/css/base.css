@@ -443,6 +443,7 @@ nav a:hover {
 
 .jp-chat-close:hover {
     color: #4b59f0;
+    transform: scale(1.2);
 }
 
 .jp-chat-window {

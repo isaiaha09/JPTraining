@@ -439,6 +439,11 @@ nav a:hover {
   transform: scale(0);
   opacity: 0;
   z-index: 1000;
+  font-size: 0.9rem;
+}
+
+.jp-chat-window *{
+  font-size: 0.9rem;
 }
 
 .jp-chat-window.open {
@@ -567,6 +572,6 @@ nav a:hover {
         font-size: 0.7rem;
         padding-top: 10px;
     }
-     #jp-chat-window { right: 14px; left: 14px; width: auto; bottom: 90px; height: 58vh; }
+  #jp-chat-window { right: 14px; left: 14px; width: auto; bottom: 90px; height: 58vh; }
   #jp-chat-bubble { right: 16px; bottom: 16px; }
 }

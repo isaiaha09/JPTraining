@@ -41,18 +41,20 @@ function restartChat() {
 bubble.addEventListener("click", () => chatWindow.classList.toggle("open"));
 
 // Show options and manage buttons
-function showOptions(items, recordMessage = false) {
+// Show options and manage buttons
+function showOptions(items, recordMessage = true) { // default true now
   options.innerHTML = "";
 
-  // Record message for back button
+  // Record current bot message
   if (recordMessage) {
-    messageHistory.push(messages.lastChild.innerText);
+    const lastMessage = messages.lastChild ? messages.lastChild.innerText : "";
+    messageHistory.push(lastMessage);
   }
 
   // Push current options to history
   historyStack.push(items);
 
-  // Show option buttons
+  // Add buttons for each option
   items.forEach(item => {
     const btn = document.createElement("button");
     btn.innerText = item.text;
@@ -93,7 +95,7 @@ function startChat() {
     { text: "Recovery tips", value: "recovery" },
     { text: "Pricing & availability", value: "pricing" }
   ];
-  showOptions(firstOptions);
+  showOptions(firstOptions); // recordMessage defaults to true
 }
 
 // Handle option selection

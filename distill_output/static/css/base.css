@@ -475,31 +475,34 @@ nav a:hover {
   transform: scale(1);
   opacity: 1;
 }
-
 .jp-chat-messages {
-  flex: 1;
+  display: flex;
+  flex-direction: column;  /* stack messages vertically */
+  gap: 10px;               /* space between messages */
   padding: 10px;
   overflow-y: auto;
+  max-height: 400px;       /* adjust as needed */
 }
 
 .jp-message {
-  margin-bottom: 10px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 70%;          /* prevent messages from being too wide */
+  word-wrap: break-word;
 }
 
 .jp-bot {
   background: #d2b48c;
-  color: #000;
-  align-self: flex-start;
+  color: black;
+  align-self: flex-start;   /* bot messages on the left */
 }
 
 .jp-user {
   background: #4b59f0;
   color: #fff;
-  align-self: flex-end;
+  align-self: flex-end;     /* user messages on the right */
 }
+
 
 .jp-chat-options {
   display: flex;

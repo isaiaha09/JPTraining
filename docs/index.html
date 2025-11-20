@@ -115,6 +115,21 @@
       <a href="about_jpt.html" class="start-button">Start Here</a>    
     </h2>
     <br>
+    <h3> testimonials </h3>
+    <div id = "testimonialSlider" class="testimonials-container">
+      <div class="testimonial">
+        <p class="testimonial-text">"JPTraining transformed my performance! The tailored training programs and expert coaching helped me reach new heights in my athletic journey."</p>
+        <p class="testimonial-author">- Alex R.</p>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">"Thanks to JPTraining, I achieved my personal best in the marathon. The support and guidance from their team made all the difference!"</p>
+        <p class="testimonial-author">- Sarah L.</p>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">"The community at JPTraining is incredible. I've met so many like-minded athletes who motivate me to push harder every day."</p>
+        <p class="testimonial-author">- Michael T.</p>
+      </div>
+    </div>
   </main>
 
   <!-- Chat window -->
@@ -193,6 +208,33 @@
 
   
 <script src="static/js/index.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const slides = document.querySelectorAll('#testimonialSlider .testimonial');
+      let index = 0;
+
+      function nextSlide() {
+
+        let current = slides[index];
+
+        current.classList.remove('active');
+        current.classList.add('exit-left');
+
+        index = (index + 1) % slides.length;
+        let next = slides[index];
+
+        setTimeout(() => {
+          current.classList.remove('exit-left');
+        }, 800);
+
+        next.classList.add('active');
+      }
+
+      slides[0].classList.add('active');
+
+      setInterval(nextSlide, 6000);
+  });
+</script>
 
 </body>
 </html>

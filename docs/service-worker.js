@@ -10,7 +10,6 @@ const APP_SHELL = [
 
   '/static/css/base.css',
   '/static/js/base.js',
-  '/static/site.webmanifest.json',
 
   '/static/images/jptraining_logo.png',
   '/static/images/favicon-192x192.png',

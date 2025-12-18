@@ -1,19 +1,20 @@
 {
-  "id":"/JPTraining/",
+  "id":"jptraining_app",
   "name": "JPTraining",
   "short_name": "JPT",
-  "start_url": "/JPTraining/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#1b1e55",
   "theme_color": "#1b1e55",
   "icons": [
     {
-      "src": "/JPTraining/static/images/favicon-192x192.png",
+      "src": "/static/images/favicon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/JPTraining/static/images/favicon-512x512.png",
+      "src": "/static/images/favicon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

@@ -49,7 +49,7 @@ self.addEventListener('fetch', event => {
   }
 
   // For other static assets
-  if (reqUrl.pathname.startsWith('/JPTraining/static/')) {
+  if (reqUrl.pathname.startsWith('/static/')) {
     event.respondWith(
       caches.match(event.request).then(cacheRes => {
         if (cacheRes) return cacheRes;

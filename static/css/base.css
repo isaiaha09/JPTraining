@@ -539,8 +539,11 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
   .logo a{
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .nav-footer{
@@ -560,24 +563,49 @@ nav a:hover {
   }
 
   .main-footer .footer-top-container {
-        flex-wrap: nowrap;          /* prevent stacking */
-        justify-content: space-between; /* spread sections evenly */
-        gap: 25px;                  /* reduce gap for smaller screens */
-        align-items: center;        /* vertically center everything */
-        padding: 0 10px;            /* optional horizontal padding */
+        display: grid;
+        grid-template-columns: 1fr auto 1fr; /* left | centered logo | right */
+        gap: 10px;                       /* tighter so it fits */
+        align-items: center;
+        padding: 0 8px;
+    }
+
+    /* Keep everything in one row, with the logo truly centered */
+    .main-footer .footer-tabs { min-width: 0; text-align: left; justify-self: start; }
+    .main-footer .footer-logo-section { min-width: 0; text-align: center; justify-self: center; }
+    .main-footer .footer-social {
+      min-width: 0;
+      justify-self: end;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .main-footer .footer-social .social-icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Let long link text wrap inside the Links column */
+    .main-footer .footer-links li a {
+      white-space: normal;
+      word-break: break-word;
+      max-width: 100%;
     }
 
     /* Reduce logo size so it fits horizontally */
     .main-footer .footer-logo {
-        width: 170px;
+      width: 165px;
         height: auto;
         margin: 0;
     }
 
     /* Reduce social icon size */
     .main-footer .social-icon img {
-        width: 70px;
-        height: 70px;
+      width: 66px;
+      height: 66px;
     }
 
     /* Reduce spacing under section titles */

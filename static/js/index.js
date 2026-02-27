@@ -16,20 +16,47 @@ document.addEventListener("DOMContentLoaded", () => {
     reset() {
       this.x = Math.random() * canvas.width;
       this.y = canvas.height + Math.random() * 10;
-      this.size = Math.random() * 3 + 1;
+      this.size = Math.random() * 3 + 1.5;
       this.speed = Math.random() * 1.5 + 0.5;
       this.angle = -Math.PI / 2;
+      this.twinklePhase = Math.random() * Math.PI * 2;
+      this.twinkleSpeed = Math.random() * 0.04 + 0.015;
+      this.baseOpacity = Math.random() * 0.35 + 0.45;
     }
     update() {
       this.x += Math.cos(this.angle) * this.speed;
       this.y += Math.sin(this.angle) * this.speed;
+      this.twinklePhase += this.twinkleSpeed;
       if (this.x > canvas.width + 50 || this.y < -50) this.reset();
     }
-    draw() {
-      ctx.fillStyle = "#d2b48c";
+    drawStar(x, y, outerRadius, innerRadius) {
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      for (let i = 0; i < 8; i++) {
+        const angle = (Math.PI / 4) * i - Math.PI / 2;
+        const radius = i % 2 === 0 ? outerRadius : innerRadius;
+        const px = x + Math.cos(angle) * radius;
+        const py = y + Math.sin(angle) * radius;
+        if (i === 0) {
+          ctx.moveTo(px, py);
+        } else {
+          ctx.lineTo(px, py);
+        }
+      }
+      ctx.closePath();
       ctx.fill();
+    }
+    draw() {
+      const twinkle = 0.7 + 0.3 * Math.sin(this.twinklePhase);
+      const alpha = this.baseOpacity * twinkle;
+
+      ctx.save();
+      ctx.fillStyle = `rgba(210, 180, 140, ${alpha})`;
+      this.drawStar(this.x, this.y, this.size, this.size * 0.35);
+      ctx.fillStyle = `rgba(255, 245, 220, ${alpha * 0.55})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size * 0.2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
     }
   }
 

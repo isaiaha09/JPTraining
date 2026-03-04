@@ -12,6 +12,72 @@ body {
   background-color: none; /* clear default solid color */
 }
 
+.site-announcement-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483647;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease;
+}
+
+.site-announcement-content {
+  position: relative;
+  width: min(92vw, 400px);
+  max-height: 85vh;
+}
+
+.site-announcement-image {
+  width: 100%;
+  max-height: 85vh;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 0;
+}
+
+.site-announcement-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.site-announcement-modal.is-hidden {
+  display: none;
+}
+
+.site-announcement-modal.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.announcement-open {
+  overflow: hidden;
+}
+
+body.announcement-open header {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Only for index page: initially remove the shadow */
 body.index-page header {
   box-shadow: 0 7px 5px rgba(210, 180, 140, 0); /* transparent version of the original */
@@ -29,8 +95,8 @@ body.index-page main::before {
     content: none !important; /* removes the gradient pseudo-element */
 }
 
-body.index-page main {
-    background-color: #d2b48c; /* plain white */
+body.index-page #main-content {
+    background-color: #d2b48c;
     color: #1b1e55;
     text-align: center;
     text-transform: uppercase;
@@ -38,7 +104,7 @@ body.index-page main {
     padding-bottom: 5px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: xx-large;
-}
+  }
 
 
 
@@ -136,7 +202,6 @@ body.index-page main {
     transform: scale(1.08);
     box-shadow: 0 8px 25px 5px #1b1e55;
 }
-
 
 h3 {
   font-size: 50px;

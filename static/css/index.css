@@ -301,6 +301,12 @@ h3 {
       border-radius: 12px;
   }
 
+    #main-content h1 {
+      padding-top: 20px;
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+
   /* Slightly faster reveal animation on mobile */
   .start-button.show {
       opacity: 1;
@@ -341,6 +347,25 @@ h3 {
   }
 
 
+}
+
+@media (max-width: 360px) {
+  .testimonials-container {
+    height: 300px;
+  }
+
+  .testimonial {
+    font-size: 11px;
+    line-height: 1.2;
+    padding: 14px 12px;
+  }
+
+  .testimonial-author {
+    position: static;
+    margin-top: 10px;
+    padding-top: 0;
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 1120px) and (min-width: 769px) {

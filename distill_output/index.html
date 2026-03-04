@@ -21,7 +21,13 @@
 <link rel="stylesheet" href="/static/css/index.css">
 
 </head>
-<body>
+<body class="index-page">
+  <div id="site-announcement-modal" class="site-announcement-modal" role="dialog" aria-modal="true" aria-label="Website announcement">
+    <div class="site-announcement-content">
+      <button id="site-announcement-close" class="site-announcement-close" aria-label="Close announcement">&times;</button>
+      <img src="/static/images/Yellow%20Modern%20Warning%20with%20Sun%20Rays%20Instagram%20Story.jpg" alt="Just Perform Training group program announcement" class="site-announcement-image">
+    </div>
+  </div>
   <header>
     <div class="navbar">
       <div class="logo">
@@ -96,8 +102,6 @@
   </header>
 
   <main>
-    
-<body class="index-page">
   <section id="hero">
     <canvas id="hero-particles"></canvas>
       <div id="hero-logo-container">
@@ -107,7 +111,7 @@
       </div>
   </section>
 
-  <main id="main-content">
+  <section id="main-content">
     <h1><strong>Train like the pros. perform like the best. <br>
     Join JPT and elevate your game! </strong>
     </h1>
@@ -197,7 +201,7 @@
         <p class="testimonial-author">- Noah G</p>
       </div>
     </div>
-  </main>
+  </section>
 
   
   <!-- Chat window -->
@@ -219,9 +223,6 @@
 
   <!-- Include chatbot script -->
   <script src="static/js/chatbot.js"></script>
-
-</body>
-
 
   </main>
 
@@ -271,29 +272,37 @@
 <script src="/static/js/index.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const slides = document.querySelectorAll('#testimonialSlider .testimonial');
-    let index = 0;
+    const announcementModal = document.getElementById('site-announcement-modal');
 
-    function nextSlide() {
+    function startTestimonials() {
+      const slides = document.querySelectorAll('#testimonialSlider .testimonial');
+      let index = 0;
 
-      let current = slides[index];
+      function nextSlide() {
+        let current = slides[index];
 
-      current.classList.remove('active');
-      current.classList.add('exit-left');
+        current.classList.remove('active');
+        current.classList.add('exit-left');
 
-      index = (index + 1) % slides.length;
-      let next = slides[index];
+        index = (index + 1) % slides.length;
+        let next = slides[index];
 
-      setTimeout(() => {
-        current.classList.remove('exit-left');
-      }, 1000);
+        setTimeout(() => {
+          current.classList.remove('exit-left');
+        }, 1000);
 
-      next.classList.add('active');
+        next.classList.add('active');
+      }
+
+      slides[0].classList.add('active');
+      setInterval(nextSlide, 10000);
     }
 
-    slides[0].classList.add('active');
-
-    setInterval(nextSlide, 10000);
+    if (announcementModal && !announcementModal.classList.contains('is-hidden')) {
+      window.addEventListener('announcement:closed', startTestimonials, { once: true });
+    } else {
+      startTestimonials();
+    }
 });
 </script>
 

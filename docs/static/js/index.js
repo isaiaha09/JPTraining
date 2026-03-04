@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const announcementModal = document.getElementById('site-announcement-modal');
+
+  function startHomeAnimations() {
 
   // --------------------------
   // HERO PARTICLES
@@ -228,4 +231,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   startObserver.observe(startButton);
 
+  }
+
+  if (announcementModal && !announcementModal.classList.contains('is-hidden')) {
+    window.addEventListener('announcement:closed', startHomeAnimations, { once: true });
+  } else {
+    startHomeAnimations();
+  }
 });

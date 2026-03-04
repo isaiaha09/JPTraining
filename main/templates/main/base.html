@@ -20,7 +20,8 @@
   
   {% block extra_css %}{% endblock %}
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
+  {% block pre_header %}{% endblock %}
   <header>
     <div class="navbar">
       <div class="logo">

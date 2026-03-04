@@ -61,7 +61,7 @@ body.index-page main {
 
 /* Hero section */
 #hero {
-  height: 110vh;
+  height: 99vh;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -198,7 +198,7 @@ h3 {
 
   /* Make the hero section shorter on mobile */
   #hero {
-      height: 90vh;
+      height: 89vh;
   }
 
   /* Resize hero particles */

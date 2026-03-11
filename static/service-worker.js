@@ -9,7 +9,7 @@ const APP_SHELL = [
   '/recovery_and_rehability',
   '/static/css/base.css',
   '/static/js/base.js',
-  '/static/site.webmanifest',
+  '/static/site.webmanifest.json',
   '/static/images/jptraining_logo.png',
   '/static/images/favicon-192.png',
   '/static/images/favicon-512.png',

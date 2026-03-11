@@ -1,22 +1,5 @@
 // base.js
 document.addEventListener('DOMContentLoaded', () => {
-  const announcementModal = document.getElementById('site-announcement-modal');
-  const announcementClose = document.getElementById('site-announcement-close');
-
-  if (announcementModal && announcementClose) {
-    document.body.classList.add('announcement-open');
-    requestAnimationFrame(() => {
-      announcementModal.classList.add('is-visible');
-    });
-
-    announcementClose.addEventListener('click', () => {
-      announcementModal.classList.remove('is-visible');
-      announcementModal.classList.add('is-hidden');
-      document.body.classList.remove('announcement-open');
-      window.dispatchEvent(new Event('announcement:closed'));
-    });
-  }
-
   // --------------------------
   // HAMBURGER MENU
   // --------------------------
@@ -142,4 +125,4 @@ document.addEventListener('DOMContentLoaded', () => {
       dot.style.transform = 'rotate(0deg)';
       dot2.style.transform = 'rotate(0deg)';
     });
-});
+  });

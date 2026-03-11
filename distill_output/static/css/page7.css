@@ -1,0 +1,81 @@
+#page7-content {
+	max-width: 1100px;
+	margin: 0 auto;
+    padding: 10px;
+}
+
+.page7-intro {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.page7-eyebrow {
+	margin: 0 0 0.75rem;
+	font-size: 0.9rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: #d2b48c;
+}
+
+#page7-title {
+	margin: 0;
+	font-size: clamp(2.2rem, 4vw, 3.6rem);
+	line-height: 1.1;
+	color: #d2b48c;
+}
+
+.page7-description {
+	max-width: 42rem;
+	margin: 1rem auto 0;
+	font-size: 1.05rem;
+	line-height: 1.7;
+	color: #d2b48c88;
+}
+
+.page7-booking-card {
+	overflow: hidden;
+	border: 1px solid rgba(27, 30, 85, 0.12);
+	border-radius: 24px;
+	background: #ffedd6;
+	box-shadow: 0 20px 50px rgba(16, 22, 56, 0.12);
+}
+
+.page7-booking-card iframe {
+	display: block;
+	width: 100%;
+	min-height: 820px;
+	border: 0;
+}
+
+.page7-direct-link {
+	margin: 1.25rem 0 0;
+	text-align: center;
+	color: #d2b48c;
+}
+
+.page7-direct-link a {
+	color: #d2b48c ;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.page7-direct-link a:hover,
+.page7-direct-link a:focus-visible {
+	text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+	#page7-content {
+		
+		padding-bottom: 4.5rem;
+	}
+
+	.page7-booking-card {
+		border-radius: 18px;
+	}
+
+	.page7-booking-card iframe {
+		min-height: 700px;
+	}
+}

@@ -420,129 +420,9 @@ nav a:hover {
     color: #bbb;
 }
 
-
-.jp-chat-header {
-    background-color: #d2b48c;  /* tan header */
-    color: #000;                /* text color */
-    font-weight: bold;
-    padding: 10px 15px;
-    font-size: 1rem;
-    display: flex;
-    justify-content: space-between; /* title on left, close on right */
-    align-items: center;
-    border-bottom: 2px solid #1b1e55;
-}
-
-.jp-chat-close {
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #1b1e55;
-    transition: color 0.2s ease;
-}
-
-.jp-chat-close:hover {
-    color: #4b59f0;
-    transform: scale(1.2);
-}
-
-.jp-chat-window {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 300px;
-  max-height: 400px;
-  background: #1b1e55;
-  color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  transform: scale(0);
-  opacity: 0;
-  z-index: 1000;
-  text-transform: none;
-}
-
-.jp-chat-window *{
-  font-size: 0.9rem;
-  text-transform: none;
-}
-.jp-chat-window.open {
-  transform: scale(1);
-  opacity: 1;
-}
-.jp-chat-messages {
-  display: flex;
-  flex-direction: column;  /* stack messages vertically */
-  gap: 10px;               /* space between messages */
-  padding: 10px;
-  overflow-y: auto;
-  max-height: 400px;       /* adjust as needed */
-}
-
-.jp-message {
-  padding: 10px 15px;
-  border-radius: 15px;
-  max-width: 70%;          /* prevent messages from being too wide */
-  word-wrap: break-word;
-}
-
-.jp-bot {
-  background: #d2b48c;
-  color: black;
-  align-self: flex-start;   /* bot messages on the left */
-}
-
-.jp-user {
-  background: #4b59f0;
-  color: #fff;
-  align-self: flex-end;     /* user messages on the right */
-}
-
-
-.jp-chat-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  padding: 8px;
-  background: #2b2f70;
-}
-
-.jp-chat-options button {
-  flex: 1 1 calc(50% - 5px);
-  padding: 6px;
-  border: none;
-  border-radius: 6px;
-  background: #d2b48c;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.jp-chat-bubble {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #1b1e55;
-  color: #fff;
-  box-shadow: 0px 0px 7px 5px #d2b48c;
-  border-radius: 50%;
-  width: 56px;
-  height: 56px;
-  font-size: 28px;
-  cursor: pointer;
-  z-index: 1001;
-}
-
 @media (max-width: 768px) {
-  html, body {
-    overflow-x: hidden;
-  }
   .logo a{
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .nav-footer{
@@ -562,49 +442,24 @@ nav a:hover {
   }
 
   .main-footer .footer-top-container {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr; /* left | centered logo | right */
-        gap: 10px;                       /* tighter so it fits */
-        align-items: center;
-        padding: 0 8px;
-    }
-
-    /* Keep everything in one row, with the logo truly centered */
-    .main-footer .footer-tabs { min-width: 0; text-align: left; justify-self: start; }
-    .main-footer .footer-logo-section { min-width: 0; text-align: center; justify-self: center; }
-    .main-footer .footer-social {
-      min-width: 0;
-      justify-self: end;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .main-footer .footer-social .social-icon {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* Let long link text wrap inside the Links column */
-    .main-footer .footer-links li a {
-      white-space: normal;
-      word-break: break-word;
-      max-width: 100%;
+        flex-wrap: nowrap;          /* prevent stacking */
+        justify-content: space-between; /* spread sections evenly */
+        gap: 25px;                  /* reduce gap for smaller screens */
+        align-items: center;        /* vertically center everything */
+        padding: 0 10px;            /* optional horizontal padding */
     }
 
     /* Reduce logo size so it fits horizontally */
     .main-footer .footer-logo {
-      width: 165px;
+        width: 170px;
         height: auto;
         margin: 0;
     }
 
     /* Reduce social icon size */
     .main-footer .social-icon img {
-      width: 66px;
-      height: 66px;
+        width: 70px;
+        height: 70px;
     }
 
     /* Reduce spacing under section titles */
@@ -628,7 +483,4 @@ nav a:hover {
         font-size: 0.7rem;
         padding-top: 10px;
     }
-
-     #jp-chat-window { right: 14px; left: 14px; width: auto; bottom: 90px; height: 58vh; }
-  #jp-chat-bubble { right: 16px; bottom: 16px; }
 }

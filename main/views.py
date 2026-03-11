@@ -18,6 +18,9 @@ def about_jpt(request):
 def gallery(request):
     return render(request, 'main/gallery.html')
 
+def page7(request):
+    return render(request, 'main/page7.html')
+
 
 # Helper for Django Distill: static pages with no URL parameters
 def no_parameters():

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="manifest" href="/static/site.webmanifest.json">
   <meta name="theme-color" content="#1b1e55">
+  
 
   <link rel="mask-icon" href="/static/images/safari-pinned-tab.svg" color="#1b1e55">
   <link rel="apple-touch-icon" sizes="192x192" href="/static/images/favicon-192x192.png">
@@ -22,7 +23,8 @@
 
 
 </head>
-<body>
+<body class="">
+  
   <header>
     <div class="navbar">
       <div class="logo">
@@ -75,8 +77,15 @@
             </svg>
             <span class="orbit-dot"></span>
           </a>
-          <a href="/recovery_and_rehabilitation/" class="nav-button">
-            Recovery and Rehabilitation
+          <a href="/recovery_and_rehability/" class="nav-button">
+            Recovery and Rehability
+            <svg width="0" height="0">
+              <path id="path-home" d="M15,0 H85 A15,15 0 0 1 100,15 V45 A15,15 0 0 1 85,60 H15 A15,15 0 0 1 0,45 V15 A15,15 0 0 1 15,0 Z"></path>
+            </svg>
+            <span class="orbit-dot"></span>
+          </a>
+          <a href="/elevate_your_performance/" class="nav-button">
+            Elevate Your Performance
             <svg width="0" height="0">
               <path id="path-home" d="M15,0 H85 A15,15 0 0 1 100,15 V45 A15,15 0 0 1 85,60 H15 A15,15 0 0 1 0,45 V15 A15,15 0 0 1 15,0 Z"></path>
             </svg>
@@ -145,28 +154,9 @@
   </div>
 </div>
 
-  <!-- Chat window 
-    <div class="jp-chat-window">
-      <div class="jp-chat-header">
-        JPT Assistant Helper
-        <span class="jp-chat-close">&times;</span> optional close button
-      </div>
-      <div class="jp-chat-messages">
-       chat messages go here
-      </div>
-      <div class="jp-chat-options">
-         buttons or options go here 
-      </div>
-    </div>
-
-       Chat bubble button 
-      <button id="jp-chat-bubble" class="jp-chat-bubble" title="Open chat">💬</button>
-
-      Include chatbot script 
-      <script src="/static/js/chatbot.js"></script>
-  -->
-
   </main>
+
+
 
   <footer class="main-footer">
       <div class="footer-top-container">
@@ -179,7 +169,7 @@
           <li><a href="/about_jpt/">About JPT</a></li>
           <li><a href="/contact_me/">Contact Me</a></li>
           <li><a href="/gallery/">Gallery</a></li>
-          <li><a href="/recovery_and_rehabilitation/">Recovery & Rehabilitation</a></li>
+          <li><a href="/recovery_and_rehability/">Recovery & Rehabilitation</a></li>
         </ul>
       </div>
 
@@ -206,16 +196,6 @@
 
   <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  
-  <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register("/service-worker.js")
-            .then(reg => console.log('Service Worker registered:', reg))
-            .catch(err => console.error('Service Worker failed:', err));
-        });
-      }
   </script>
 
   <script src="/static/js/base.js"></script>

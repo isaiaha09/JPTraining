@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="manifest" href="/static/site.webmanifest.json">
   <meta name="theme-color" content="#1b1e55">
+  
 
   <link rel="mask-icon" href="/static/images/safari-pinned-tab.svg" color="#1b1e55">
   <link rel="apple-touch-icon" sizes="192x192" href="/static/images/favicon-192x192.png">
@@ -21,7 +22,8 @@
 <link rel="stylesheet" href="/static/css/contact_me.css">
 
 </head>
-<body>
+<body class="">
+  
   <header>
     <div class="navbar">
       <div class="logo">
@@ -74,8 +76,15 @@
             </svg>
             <span class="orbit-dot"></span>
           </a>
-          <a href="/recovery_and_rehabilitation/" class="nav-button">
-            Recovery and Rehabilitation
+          <a href="/recovery_and_rehability/" class="nav-button">
+            Recovery and Rehability
+            <svg width="0" height="0">
+              <path id="path-home" d="M15,0 H85 A15,15 0 0 1 100,15 V45 A15,15 0 0 1 85,60 H15 A15,15 0 0 1 0,45 V15 A15,15 0 0 1 15,0 Z"></path>
+            </svg>
+            <span class="orbit-dot"></span>
+          </a>
+          <a href="/elevate_your_performance/" class="nav-button">
+            Elevate Your Performance
             <svg width="0" height="0">
               <path id="path-home" d="M15,0 H85 A15,15 0 0 1 100,15 V45 A15,15 0 0 1 85,60 H15 A15,15 0 0 1 0,45 V15 A15,15 0 0 1 15,0 Z"></path>
             </svg>
@@ -106,7 +115,7 @@
         <form id="contactform" action="https://api.web3forms.com/submit" method="POST">
           
           <!-- Web3Forms Access Key -->
-          <input type="hidden" name="access_key" value="c9dc1727-2f14-4f9e-bb7c-db8ed39dffc5">
+          <input type="hidden" name="access_key" value="3e2edaf8-ec04-402c-82bb-584e26bca779">
 
           <input type="hidden" name="from_name" value="JPTraining Contact Form">
 
@@ -156,33 +165,44 @@
         </div>
       </div>
 
-      <!-- LightWidget WIDGET 
-      <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/483a151824a45167a4cd75ab3bb1f4cc.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe> -->
+      <!-- LightWidget WIDGET -->
+      <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/483a151824a45167a4cd75ab3bb1f4cc.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
     </div>
   </section>
 
-     <!-- Chat window 
-    <div class="jp-chat-window">
-      <div class="jp-chat-header">
-        JPT Assistant Helper
-        <span class="jp-chat-close">&times;</span> optional close button
-      </div>
-      <div class="jp-chat-messages">
-       chat messages go here
-      </div>
-      <div class="jp-chat-options">
-         buttons or options go here 
-      </div>
-    </div>
+<script>
+document.getElementById("contactform").addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-       Chat bubble button 
-      <button id="jp-chat-bubble" class="jp-chat-bubble" title="Open chat">💬</button>
+    const form = this;
+    const modal = document.getElementById("successModal");
 
-      Include chatbot script 
-      <script src="/static/js/chatbot.js"></script>
-  -->
+    const formData = new FormData(form);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+        form.reset();
+        modal.classList.add("show");   // <-- ONLY shows after submit
+    } else {
+        alert("Something went wrong. Please try again.");
+    }
+});
+
+// Close modal
+document.getElementById("closeModalBtn").addEventListener("click", () => {
+    document.getElementById("successModal").classList.remove("show");
+});
+</script>
 
   </main>
+
+  
 
   <footer class="main-footer">
       <div class="footer-top-container">
@@ -195,7 +215,7 @@
           <li><a href="/about_jpt/">About JPT</a></li>
           <li><a href="/contact_me/">Contact Me</a></li>
           <li><a href="/gallery/">Gallery</a></li>
-          <li><a href="/recovery_and_rehabilitation/">Recovery & Rehabilitation</a></li>
+          <li><a href="/recovery_and_rehability/">Recovery & Rehabilitation</a></li>
         </ul>
       </div>
 
@@ -230,41 +250,12 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register("/service-worker.js")
+          navigator.serviceWorker.register("/static/service-worker.js")
             .then(reg => console.log('Service Worker registered:', reg))
             .catch(err => console.error('Service Worker failed:', err));
         });
       }
     </script>
-    <script>
-document.getElementById("contactform").addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const form = this;
-    const modal = document.getElementById("successModal");
-
-    const formData = new FormData(form);
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-    });
-
-    const result = await response.json();
-
-    if (result.success) {
-        form.reset();
-        modal.classList.add("show");   // <-- ONLY shows after submit
-    } else {
-        alert("Something went wrong. Please try again.");
-    }
-});
-
-// Close modal
-document.getElementById("closeModalBtn").addEventListener("click", () => {
-    document.getElementById("successModal").classList.remove("show");
-});
-</script>
   
 </body>
 </html>

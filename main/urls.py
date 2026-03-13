@@ -13,5 +13,5 @@ urlpatterns = [
     distill_path('about_me/', views.about_me, name='about_me', distill_func=get_index, distill_file='about_me.html'),
     distill_path('about_jpt/', views.about_jpt, name='about_jpt', distill_func=get_index, distill_file='about_jpt.html'),
     distill_path('gallery/', views.gallery, name='gallery', distill_func=get_index, distill_file='gallery.html'),
-    distill_path('page7/', views.page7, name='page7', distill_func=get_index, distill_file='page7.html'),
+    distill_path('elevate_your_performance/', views.elevate_your_performance, name='elevate_your_performance', distill_func=get_index, distill_file='elevate_your_performance.html'),
 ]

@@ -6,8 +6,8 @@ def index(request):
 def contact_me(request):
     return render(request, 'main/contact_me.html')
 
-def recovery_and_rehability(request):
-    return render(request, 'main/recovery_and_rehability.html')
+def recovery_and_rehabilitation(request):
+    return render(request, 'main/recovery_and_rehabilitation.html')
 
 def about_me(request):
     return render(request, 'main/about_me.html')

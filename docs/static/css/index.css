@@ -30,6 +30,9 @@ body {
   position: relative;
   width: min(92vw, 400px);
   max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .site-announcement-image {
@@ -60,6 +63,43 @@ body {
   z-index: 5;
 }
 
+.site-announcement-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.site-announcement-book-now {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: min(100%, 220px);
+  padding: 14px 28px;
+  border: 2px solid #d2b48c;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f1d89f 0%, #d2b48c 100%);
+  color: #1b1e55;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.site-announcement-book-now:hover,
+.site-announcement-book-now:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.35);
+}
+
+.site-announcement-book-now:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
 .site-announcement-modal.is-hidden {
   display: none;
 }
@@ -67,6 +107,18 @@ body {
 .site-announcement-modal.is-visible {
   opacity: 1;
   visibility: visible;
+}
+
+@media (max-width: 480px) {
+  .site-announcement-actions {
+    margin-top: 14px;
+  }
+
+  .site-announcement-book-now {
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 1rem;
+  }
 }
 
 body.announcement-open {

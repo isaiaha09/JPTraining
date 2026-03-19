@@ -59,6 +59,39 @@ body{
   animation: fadeInUp 1s ease both;
 }
 
+.booking-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: -15px auto 40px;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #d2b48c 0%, #e6cfad 100%);
+  color: #1b1e55;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  animation: fadeInUp 1.05s ease both;
+}
+
+.booking-btn:hover {
+  background: transparent;
+  color: #d2b48c;
+  border-color: #d2b48c;
+  box-shadow: 0 0 18px rgba(210, 180, 140, 0.45);
+  transform: translateY(-3px);
+}
+
+.booking-btn:focus-visible {
+  outline: 3px solid rgba(210, 180, 140, 0.45);
+  outline-offset: 4px;
+}
+
 /* CONTACT FORM CONTAINER */
 .contactform-container {
   display: flex;
@@ -301,6 +334,12 @@ textarea {
     padding: 0 10px;
   }
 
+  .booking-btn {
+    margin-bottom: 30px;
+    padding: 13px 24px;
+    font-size: 0.95rem;
+  }
+
   /* FORM */
   #contactform {
     padding: 30px 25px;
@@ -350,6 +389,13 @@ textarea {
     font-size: 0.95rem;
   }
 
+  .booking-btn {
+    width: calc(100% - 30px);
+    max-width: 320px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
   #contactform {
     padding: 20px 15px;
   }
@@ -373,6 +419,11 @@ textarea {
 
   .btn {
     font-size: 0.9rem;
+  }
+
+  .booking-btn {
+    width: 100%;
+    max-width: 100%;
   }
 
   textarea {

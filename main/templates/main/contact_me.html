@@ -7,9 +7,11 @@
 {% block content %}
   <section class="contact-section">
     <h1>Contact Me</h1>
-    <p>For any inquieries, questions, or to schedule a 
-      session with me, please fill out the form below and follow my Instagram!
+    <p>
+      For any inquiries, questions, or collabs, please fill out the form below and follow my Instagram.
+      If you wish to schedule a session with me, use the booking page below.
     </p>
+    <a href="{% url 'elevate_your_performance' %}" class="booking-btn">Book a Session</a>
     <div class="contactform-container">
         <form id="contactform" action="https://api.web3forms.com/submit" method="POST">
           
